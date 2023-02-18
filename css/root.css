@@ -12,9 +12,10 @@
     box-sizing: border-box;
 }
 
-body{
+body
+{
     font-family: 'Comfortaa', cursive;
-    background-color: var(--color-1);
+    background-color: rgba(37, 50, 89, 0.95);
 }
 
 
@@ -42,7 +43,7 @@ body{
 ::placeholder{
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    color: #692862;
+    color: #000000;
     font-weight: 700;
     opacity: .7;
 }
@@ -53,8 +54,17 @@ html{
     scroll-margin-top: 60px;
     overflow-x: hidden;
     width: 100vw;
+    background-image: url('/images/WhatsApp\ Image\ 2023-02-15\ at\ 7.47.46\ PM.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
+section
+{
+    scroll-margin-top: 60px;
+}
 main{
     padding: 70px 0 0 0;
 }

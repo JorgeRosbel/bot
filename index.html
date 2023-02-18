@@ -9,9 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="css/root.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/root.css?1.0">
+    <link rel="stylesheet" href="css/menu.css?1.0">
+    <link rel="stylesheet" href="css/home.css?1.0">
+    <link rel="stylesheet" href="css/services.css?1.0">
+    <link rel="shortcut icon" href="images/Profit+BuhoLogo.svg" type="image/x-icon">
     <title>Owlprofit</title>
 
 </head>
@@ -19,17 +22,18 @@
     <header>
         <div class="header-content mod normal">
             <div class="logo-content">
-                <a href="#"><img src="images/Trading Bot Character Illustration.jfif" alt="logo-img" class="logo"></a>
+                <a href="#"><img src="images/Profit+BuhoLogo.svg" alt="logo-img" class="logo"></a>
                 <p class="logo-text">
                     Owl<span class="neon">Profit</span>
                 </p>
             </div>
             <ion-icon class="menu-icon" name="apps"></ion-icon>
             <nav class="nav-menu">
-                <a href="#index.html" class="link-menu l-1"><span class="bar">Home</span></a>
-                <a href="#" class="link-menu l-2"><span class="bar">Option</span></a>
+                <a href="#" class="link-menu l-1"><span class="bar">Home</span></a>
+                <a href="#services" class="link-menu l-2"><span class="bar">Our services</span></a>
                 <a href="#" class="link-menu l-3"><span class="bar">Option</span></a>
-                <a href="#" class="link-menu l-4"><span class="bar">Option</span></a>
+                <a href="#" class="link-menu l-4"><span class="bar">About us</span></a>
+                <a href="#" class="link-menu l-4"><span class="bar">FAQ</span></a>
             </nav>
         </div>
     </header>
@@ -52,7 +56,7 @@
         <div class="modal-content">
             <div class="box">
                 <span class="border-line"></span>
-                <form action="" method="POST" class="form-modal">
+                <form action="php/register.php" method="POST" class="form-modal">
                     <p class="form-title">Subscribe</p>
                     <div class="inputBox">
                         <input type="text" name="name" required>
@@ -60,7 +64,7 @@
                         <i></i>
                     </div>
                     <div class="inputBox">
-                        <input  class="email" type="email" name="email" required>
+                        <input onformchange="validator()"  class="email" type="email" name="email" required>
                         <span class="layer"><ion-icon name="mail"></ion-icon> Email</span>
                         <i></i>
                     </div>
@@ -76,12 +80,110 @@
                 </form>
             </div>
         </div>
+
+
+        <section id="services">
+            <div class="services-content mod normal">
+                <h2>
+                    <span class="neon">Our</span> Services
+                </h2>
+
+                <div class="card-content">
+                    <div class="card card-1">
+                        <p class="card-title">Basic package</p>
+                        <ion-icon name="star"></ion-icon>
+                        <ul>
+                            <li>1 Forex asset. If you are one of the first 10 clients, 
+                                you have the possibility to get a bot that analyzes all 
+                                the pairs
+                            </li>
+                            <li>Any number of technical indicators can be used.</li>
+                            <li>Input signals via the Python console on your computer</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-2">
+                        <p class="card-title">Standard package</p>
+                        <div class="star-content">
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        <ul>
+                            <li>Everything in the basic package</li>
+                            <li>
+                                3-5 financial assets chosen by you. If you are one of the first 10 clients,
+                                 you have the possibility to get a bot that analyzes all the pairs, in case 
+                                 your strategy allows it
+                            </li>
+                            <li>Input signals via TELEGRAM</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-3">
+                        <p class="card-title">Premium package</p>
+                        <div class="star-content">
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        <ul>
+                            <li>Everything included in the basic and standard package</li>
+                            <li>Analysis for all financial assets</li>
+                            <li>
+                                Advice to implement VPS service (bot operating 24 hours 
+                                away from your computer)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <form  action="" class="contact-form">
+                    <p class="contact-title">Request a package</p>
+                    <div class="body-form">
+                        <div class="input-content">
+                            <input type="text" name="user" placeholder="Name" required>
+                            <input type="email" name="email" placeholder="Email">
+                            <select name="select-plan" id="select">
+                                <option value="Choose">Choose a package...</option>
+                                <option value="Basic">Basic</option>
+                                <option value="Standard">Standard</option>
+                                <option value="Premium">Premium</option>
+                            </select>
+                            <select name="select-marker" id="select-marker">
+                                <option value="Choose">Choose a type..</option>
+                                <option value="Binary-option">Binary Options</option>
+                                <option value="Forex">Forex</option>
+                            </select>
+                        </div>
+                        <textarea name="textarea" cols="30" rows="10" placeholder="Enter a short description of the strategy you want to automate"></textarea>
+                    </div>
+                    <input class="btn-contact" type="submit" value="Send">
+                </form>
+            </div>
+        </section>
         
     </main>
-    <script src="js/resolution.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/reveal.js"></script>
-    <script src="js/modal.js"></script>
+    <script src="js/resolution.js?1.0"></script>
+    <script src="js/header.js?1.0"></script>
+    <script src="js/reveal.js?1.0"></script>
+    <script src="js/modal.js?1.0"></script>
+
+    <script>
+        function validator(){
+            const email_val = document.querySelector(".email").value;
+            const email     = document.querySelector(".email");
+            console.log(email_val);
+
+            if(email_val == "dota")
+            {
+                email.classList.add("error");
+                console.log("Agregar");
+            }else{
+                email.classList.remove("error");
+                console.log("Quitar");
+            }
+        }
+    </script>
 
 
 </body>

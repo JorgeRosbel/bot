@@ -16,20 +16,20 @@ cancel.addEventListener("click", ()=> {
 
 
 //Validacion del Email
-// const email_val = document.querySelector(".email").value;
-// const email     = document.querySelector(".email");
+const email_val = document.querySelector(".email").value;
+const email     = document.querySelector(".email");
 
-// email.addEventListener("input", ()=> {
+modal.addEventListener("input", ()=> {
 
-//     if(email_val == "dota")
-//     {
-//         email.classList.add("error");
-//         console.log("Agregar");
-//     }else{
-//         email.classList.remove("error");
-//         console.log("Quitar");
-//         }
+    if(email_val == "dota")
+    {
+        email.classList.add("error");
+        console.log("Agregar");
+    }else{
+        email.classList.remove("error");
+        console.log("Quitar");
+        }
 
-// })
+})
 
 

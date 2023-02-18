@@ -20,3 +20,18 @@ ScrollReveal().reveal('header .l-2', { delay: 600, origin:'bottom', distance:'80
 ScrollReveal().reveal('header .l-3', { delay: 800, origin:'bottom', distance:'80px' });
 ScrollReveal().reveal('header .l-4', { delay: 1000, origin:'bottom', distance:'80px' });
 ScrollReveal().reveal('header .logo-content', { delay: 400, origin:'left', distance:'80px' });
+
+
+//cards
+ScrollReveal().reveal('#services .services-content .card-content .card-1', { delay: 300, origin:'bottom', distance:'100px' });
+ScrollReveal().reveal('#services .services-content .card-content .card-2', { delay: 600, origin:'bottom', distance:'100px' });
+ScrollReveal().reveal('#services .services-content .card-content .card-3 ', { delay: 800, origin:'bottom', distance:'100px' });
+
+ScrollReveal().reveal('#services .services-content h2', { delay: 400, origin:'left', distance:'80px' });
+
+
+
+//Contacto Form
+ScrollReveal().reveal('#services .services-content .contact-form', { delay: 700, origin:'left', distance:'80px' });
+
+

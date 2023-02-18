@@ -74,8 +74,20 @@ header .header-content .nav-menu .bar::before{
     transition: 300ms;
 }
 
-header .header-content .nav-menu .link-menu:hover{
+header .header-content .nav-menu .bar.isActiveLine::before
+{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+header .header-content .nav-menu .link-menu:hover
+{
     position: relative;
+    color:#04D9B2;
+    text-shadow: 1px 1px 20px #04D9B2;
+}
+
+header .header-content .nav-menu .link-menu.isActiveMenu
+{
     color:#04D9B2;
     text-shadow: 1px 1px 20px #04D9B2;
 }

@@ -32,3 +32,19 @@ links.forEach( link => {
         
     })
 })
+
+
+$(document).ready(function(){
+  $('.link-menu').on('click',function(){
+      $(this).siblings().removeClass('isActiveMenu');
+      $(this).addClass('isActiveMenu');
+  })
+})
+
+$(document).ready(function(){
+  $('.bar').on('click',function(){
+      $('.bar').removeClass('isActiveLine');
+      $(this).addClass('isActiveLine');
+  })
+})
+
