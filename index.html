@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/root.css?1.0">
-    <link rel="stylesheet" href="css/menu.css?1.0">
-    <link rel="stylesheet" href="css/home.css?1.0">
-    <link rel="stylesheet" href="css/services.css?1.0">
+    <link rel="stylesheet" href="css/root.css?1.1">
+    <link rel="stylesheet" href="css/menu.css?1.1">
+    <link rel="stylesheet" href="css/home.css?1.1">
+    <link rel="stylesheet" href="css/services.css?1.1">
     <link rel="shortcut icon" href="images/Profit+BuhoLogo.svg" type="image/x-icon">
     <title>Owlprofit</title>
 
@@ -140,22 +140,48 @@
                 <form  action="" class="contact-form">
                     <p class="contact-title">Request a package</p>
                     <div class="body-form">
+                       <div class="body-left">
                         <div class="input-content">
-                            <input type="text" name="user" placeholder="Name" required>
-                            <input type="email" name="email" placeholder="Email">
-                            <select name="select-plan" id="select">
-                                <option value="Choose">Choose a package...</option>
-                                <option value="Basic">Basic</option>
-                                <option value="Standard">Standard</option>
-                                <option value="Premium">Premium</option>
-                            </select>
-                            <select name="select-marker" id="select-marker">
-                                <option value="Choose">Choose a type..</option>
-                                <option value="Binary-option">Binary Options</option>
-                                <option value="Forex">Forex</option>
-                            </select>
+                            <div class="item">
+                                <span><ion-icon name="person"></ion-icon> Full Name*</span>
+                                <input id="name-f" type="text" name="user" placeholder="Enter you name" required onkeyup="isNameOK()">
+                                <span id="name-error" style="color: red;"></span>
+                            </div>
+                            <div class="item">
+                                <span><ion-icon name="mail"></ion-icon> Gmail*</span>
+                                <input id="email-f" type="email" name="email" placeholder="Enter your gmail" required onkeyup="isEmailOK()"> 
+                                <span id="email-error" style="color: red;"></span>
+                            </div>
                         </div>
-                        <textarea name="textarea" cols="30" rows="10" placeholder="Enter a short description of the strategy you want to automate"></textarea>
+
+                        <div class="input-content">
+                            <div class="item">
+                                <span><ion-icon name="bag"></ion-icon>Choose a package*</span>
+                                <select name="select-plan" id="select" onchange="isPackageOK()">
+                                    <option value="None">None</option>
+                                    <option value="Basic">Basic</option>
+                                    <option value="Standard">Standard</option>
+                                    <option value="Premium">Premium</option>
+                                </select>
+                                <span id="select-1-error"></span>
+                            </div>
+                            <div class="item">
+                                <span><ion-icon name="stats-chart"></ion-icon> Choose a type*</span>
+                                <select name="select-marker" id="select-marker" onchange="isPackageOK_2()">
+                                    <option value="None">None</option>
+                                    <option value="Binary-option">Binary Options</option>
+                                    <option value="Forex">Forex</option>
+                                </select>
+                                <span id="select-2-error"></span>
+                            </div>
+
+                        </div>
+                       </div>
+                        <div class="item">
+                            <span><ion-icon name="paper-plane"></ion-icon> Strategy description*</span>
+                            <textarea id="text-area" name="textarea" cols="30" rows="10" placeholder="Enter a short description of the strategy you want to automate" onkeyup="isTextAreaOk()"></textarea>
+                            <span id="areaError"></span>
+                        </div>
                     </div>
                     <input class="btn-contact" type="submit" value="Send">
                 </form>
@@ -163,27 +189,13 @@
         </section>
         
     </main>
-    <script src="js/resolution.js?1.0"></script>
-    <script src="js/header.js?1.0"></script>
-    <script src="js/reveal.js?1.0"></script>
-    <script src="js/modal.js?1.0"></script>
+    <script src="js/resolution.js?1.1"></script>
+    <script src="js/header.js?1.1"></script>
+    <script src="js/reveal.js?1.1"></script>
+    <script src="js/modal.js?1.1"></script>
+    <script src="js/email.js?1.1"></script>
 
-    <script>
-        function validator(){
-            const email_val = document.querySelector(".email").value;
-            const email     = document.querySelector(".email");
-            console.log(email_val);
-
-            if(email_val == "dota")
-            {
-                email.classList.add("error");
-                console.log("Agregar");
-            }else{
-                email.classList.remove("error");
-                console.log("Quitar");
-            }
-        }
-    </script>
+    
 
 
 </body>

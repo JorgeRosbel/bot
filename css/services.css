@@ -97,10 +97,11 @@
     }
 }
 
+/*Contacto From*/
+
 #services .services-content .contact-form
 {
-    background-color: #3a3b3b42;
-    box-shadow: 2px 2px 10px #757575;
+    background-color: #fff;
     padding: 3em;
     display: flex;
     flex-direction: column;
@@ -111,9 +112,22 @@
 
 #services .services-content .contact-form .contact-title
 {
-    color:#fff;
-    font-size: 20px;
-    font-weight: 600;
+    color:#222;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    margin: 0 0 20px 0;
+    position: relative;
+}
+
+#services .services-content .contact-form .contact-title::before
+{
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    width: 30px;
+    height: 3px;
+    background-color: #222;
 }
 
 #services .services-content .contact-form .body-form
@@ -122,75 +136,80 @@
     justify-content: center;
     align-items: center;
     gap:30px;
+    width: 100%;
 }
 
 #services .services-content .contact-form .body-form .input-content
 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap:30px;
+    width: 100%;
 }
 
 #services .services-content .contact-form .body-form .input-content input
 {
     padding: 0.5em;
-    border-radius: 2px;
+    border-radius: 8px;
     outline: none;
-    border: none;
+    border: solid 1px #2222224f;
+    border-bottom-width: 2px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
+    width: 250px;
+    transition: 0.3s ease;
 }
 
 #select,
 #select-marker
 {
-    width: 100%;
     padding: 0.5em;
-    border-radius: 2px;
+    border-radius: 8px;
     outline: none;
-    border: none;
+    border: solid 1px #2222224f;
     text-align: center;
-    font-size: 15px;
     font-family: 'Montserrat', sans-serif;
-    color: #050505;
+    font-size: 15px;
+    width: 250px;
+    border-bottom-width: 2px;
+    transition: 0.3s ease;
 }
 
 select option
 {
-    background: rgb(255, 255, 255);
-    font-family: 'Montserrat', sans-serif;
+    border: solid 10px #2222224f;
 }
-
 
 #services textarea
 {
-    height: 230px;
-    width: 650px;
-    text-align: justify;
-    outline: none;
-    border: none;
-    padding: 0.5em;
-    font-size: 15px;
     resize: vertical;
-    font-family: 'Montserrat', sans-serif;
+    width: 350px;
+    outline: none;
+    border: solid 2px #2222224f;
+    font-size: 15px;
+    text-align: justify;
+    padding: 0.5em;
+    height: 130px;
+    border-radius: 8px;
 }
 
 #services .btn-contact
 {
     font-family: 'Montserrat', sans-serif;
-    color:#04D9B2;
-    border: solid 2px #04D9B2;
+    color:#fff;
     font-weight: 700;
     background: none;
-    width: 130px;
+    width: 150px;
     padding: 0.6em 0;
     border-radius: 3px;
     cursor: pointer;
     margin:20px 0 0 0;
     transition: 300ms;
+    background-color: rgba(37, 50, 89, 0.95);
+    border: none;
 }
 
 #services .btn-contact:hover
@@ -200,47 +219,101 @@ select option
     color:#fff;
 }
 
+#services .body-form .item
+{
+    display: flex;
+    flex-direction: column;
+}
 
-@media (max-width:1097px) {
+#services .body-form .item span
+{
+    font-weight: 700;
+    font-size: 12px;
+    color:#050505;
+    margin: 0 0 6px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.body-left
+{
+    display: flex;
+    gap:30px;
+}
+
+
+
+@media (max-width:1024px) 
+{
+    .body-left
+    {
+        flex-direction: column;
+
+    }
+
     #services textarea
     {
-        width: 500px;
+        height: 300px;
     }
 }
 
-@media (max-width:889px) {
-    #services textarea
-    {
-        width: 300px;
-    }
-}
-
-@media (max-width:889px) {
-    #services .services-content .contact-form
-    {
-        padding: 1em;
-        width: 100%;
-    }
-
+@media (max-width:773px) {
     #services .services-content .contact-form .body-form
     {
         flex-direction: column;
-    }
-
-    #services .services-content .contact-form .body-form .input-content
-    {
+        padding: 0em;
         width: 100%;
     }
 
-    #services textarea,
     #services .services-content .contact-form .body-form .input-content input,
-    #select,
-    #select-marker
+    #services textarea
     {
-        width: 100%;
+        width: 250px;
     }
-
 }
 
 
 
+
+#services .services-content .contact-form .body-form .input-content .item input:focus
+{
+    border-color: #1c1d1d;
+}
+
+
+#select:focus,
+#select-marker:focus,
+#services textarea:focus
+{
+    border-color: #1c1d1d;
+}
+
+
+/*Colores de validacion message*/
+
+#services .services-content .contact-form .body-form .input-content .item input.bad,
+#select.bad,
+#select-marker.bad,
+#services textarea.bad,
+#services .services-content .contact-form .body-form .input-content .item  #email-f.bad
+{
+    border-color: red;
+}
+
+#services .services-content .contact-form .body-form .input-content .item input.ok,
+#select.ok,
+#select-marker.ok,
+#services textarea.ok,
+#services .services-content .contact-form .body-form .input-content .item  #email-f.ok
+{
+    border-color: #04D9B2;
+}
+
+#services #name-error,
+#services #email-error,
+#services #select-1-error,
+#services #select-2-error,
+#services #areaError
+{
+    color:red;
+    margin:0;
+}
