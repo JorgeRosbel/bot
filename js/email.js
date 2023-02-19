@@ -5,6 +5,7 @@ var emailError     = document.getElementById("email-error");
 var packageError   = document.getElementById("select-1-error");
 var packageError_2 = document.getElementById("select-2-error");
 var areaError      = document.getElementById("areaError");
+var noSubmit         = document.getElementById("noSubmit");
 
 
 
@@ -65,7 +66,7 @@ function isTextAreaOk(){
     console.log(area.length);
     var min = 80;
     if(area.length < min){
-        areaError.innerHTML = 'must have more than ' + min + ' characters';
+        areaError.innerHTML = 'must have more than ' + min + ' characters<br>you have entered only: ' + area.length;
         areaError.style.color = 'red';
         document.getElementById("text-area").classList.remove("ok");
         document.getElementById("text-area").classList.add("bad");
@@ -103,4 +104,85 @@ function isEmailOK(){
         document.getElementById("email-f").classList.remove("ok");
         document.getElementById("email-f").classList.add("bad");
     }
+}
+
+
+function evitarNumeros(event) {
+    const input = event.target;
+    const valor = input.value;
+    const tecla = String.fromCharCode(event.which);
+  
+    if (!isNaN(tecla) && tecla !== ' ') {
+      event.preventDefault();
+    }
+  }
+
+
+function prevemtSubmit(){
+    //Validar nombre
+    var name = document.getElementById("name-f").value;
+
+    if(name.length == 0){
+        nameError.innerHTML = 'empty name';
+        nameError.style.color = 'red';
+        document.getElementById("name-f").classList.remove("ok");
+        document.getElementById("name-f").classList.add("bad");
+        noSubmit.innerHTML = "Error sending, enter your details correctly";
+        return false;
+    }
+
+    //Validar email
+    var email   = document.getElementById("email-f").value;
+    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@gmail\.com$/;
+    var rt = regex.test(email);
+
+    if(rt == false){
+        emailError.innerHTML = 'invalid gmail';
+        emailError.style.color = 'red';
+        document.getElementById("email-f").classList.remove("ok");
+        document.getElementById("email-f").classList.add("bad");
+        noSubmit.innerHTML = "Error sending, enter your details correctly";
+        return false;
+    }
+
+    //validar package 1
+    var package = document.getElementById("select").value;
+
+    if(package == "None"){
+        packageError.innerHTML = 'select a package';
+        packageError.style.color = 'red';
+        document.getElementById("select").classList.remove("ok");
+        document.getElementById("select").classList.add("bad");
+        noSubmit.innerHTML = "Error sending, enter your details correctly";
+        return false;
+    }
+
+    var package = document.getElementById("select-marker").value;
+
+    if(package == "None"){
+        packageError_2.innerHTML = 'select a package';
+        packageError_2.style.color = 'red';
+        document.getElementById("select-marker").classList.remove("ok");
+        document.getElementById("select-marker").classList.add("bad");
+        noSubmit.innerHTML = "Error sending, enter your details correctly";
+        return false;
+    }
+
+    var area = document.getElementById("text-area").value;
+    var min = 80;
+    if(area.length < min){
+        areaError.innerHTML = 'must have more than ' + min + ' characters<br>you have entered only: ' + area.length;
+        areaError.style.color = 'red';
+        document.getElementById("text-area").classList.remove("ok");
+        document.getElementById("text-area").classList.add("bad");
+        noSubmit.innerHTML = "Error sending, enter your details correctly";
+        return false;
+    }
+    
+    
+    return true;
+
+    
+
+
 }

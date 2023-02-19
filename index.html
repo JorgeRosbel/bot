@@ -137,14 +137,14 @@
                     </div>
                 </div>
 
-                <form  action="" class="contact-form">
+                <form  action="" class="contact-form" onsubmit="return prevemtSubmit()">
                     <p class="contact-title">Request a package</p>
                     <div class="body-form">
                        <div class="body-left">
                         <div class="input-content">
                             <div class="item">
                                 <span><ion-icon name="person"></ion-icon> Full Name*</span>
-                                <input id="name-f" type="text" name="user" placeholder="Enter you name" required onkeyup="isNameOK()">
+                                <input id="name-f" type="text" name="user" placeholder="Enter you name" required onkeyup="isNameOK()" onkeypress="evitarNumeros(event)">
                                 <span id="name-error" style="color: red;"></span>
                             </div>
                             <div class="item">
@@ -184,6 +184,7 @@
                         </div>
                     </div>
                     <input class="btn-contact" type="submit" value="Send">
+                    <span id="noSubmit" style="color:red; font-weight: 700;"></span>
                 </form>
             </div>
         </section>
